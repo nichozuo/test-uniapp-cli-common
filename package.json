@@ -91,6 +91,7 @@
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
