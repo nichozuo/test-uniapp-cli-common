@@ -986,7 +986,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dcloudio/types@*":
+"@dcloudio/types@*", "@dcloudio/types@^2.0.16":
   version "2.5.18"
   resolved "https://registry.npmmirror.com/@dcloudio/types/-/types-2.5.18.tgz#47b0b883f028adc1c856b289b0ee16d17d6c9155"
   integrity sha512-1EMwZsi5j9KHI5wdLwZJmUyo5b8HnG60CRqsqW5kcd3cgSrKtgL3EKCYUjmJw+3gd9G/4NeEkSx5pT5l+4rNXg==
@@ -7210,6 +7210,13 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+luch-request@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.npmmirror.com/luch-request/-/luch-request-3.0.7.tgz#5894fc3d3ff62622b042c84953c1192ccdeafaa5"
+  integrity sha512-rYTgAO0CiAMjuotvwhtEREQ6mh/qdgYO2a+cKDv2VPnww/MdNaHMGMpsPY6VvJCOtfH7kV9lDujjuihhlu1xmg==
+  dependencies:
+    "@dcloudio/types" "^2.0.16"
 
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"

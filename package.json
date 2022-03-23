@@ -67,6 +67,7 @@
     "@vue/shared": "^3.0.0",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
+    "luch-request": "^3.0.7",
     "regenerator-runtime": "^0.12.1",
     "uview-ui": "^2.0.29",
     "vue": "^2.6.11",

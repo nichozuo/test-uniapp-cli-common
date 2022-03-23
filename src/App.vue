@@ -1,6 +1,7 @@
 <script>
 export default {
   onLaunch: function () {
+    this.$http.post("auth/me");
     console.log("App Launch");
   },
   onShow: function () {
