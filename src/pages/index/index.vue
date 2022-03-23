@@ -3,6 +3,7 @@
     <image class="logo" src="/static/logo.png"></image>
     <view>
       <text class="text-1xl">{{ title }}</text>
+      <u-button type="primary" text="确定"></u-button>
     </view>
   </view>
 </template>
