@@ -1139,6 +1139,11 @@
     "@babel/types" "^7.3.3"
     vue-template-compiler "^2.6.10"
 
+"@dcloudio/uni-ui@^1.4.12":
+  version "1.4.12"
+  resolved "https://registry.npmmirror.com/@dcloudio/uni-ui/-/uni-ui-1.4.12.tgz#0482929068780ed7373aff3535fb4433cade22a1"
+  integrity sha512-sGVHU8Fz/L6NtrsClw8d38SPI16oCgBBQ7fYBVTV1hgS8brFVL56ti9tbY/Qx5qw6+ZPzAzb9lfiG6Tqi4kIJw==
+
 "@dcloudio/vue-cli-plugin-hbuilderx@^2.0.1-33920220314002":
   version "2.0.1-33920220314002"
   resolved "https://registry.npmmirror.com/@dcloudio/vue-cli-plugin-hbuilderx/-/vue-cli-plugin-hbuilderx-2.0.1-33920220314002.tgz#14cba20ccf6853ae3b47e76c3d9e07c4553ba404"
