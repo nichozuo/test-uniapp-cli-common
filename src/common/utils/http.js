@@ -5,7 +5,7 @@ const actions = {
   sub: () => {},
 };
 const http = new Request({
-  baseURL: "http://127.0.0.1:8000/api/business",
+  baseURL: "http://127.0.0.1:8000/api/agent/",
   method: "POST",
   // #ifdef H5 || APP-PLUS || MP-ALIPAY || MP-WEIXIN
   timeout: 100000,
@@ -72,8 +72,13 @@ http.interceptors.response.use(
     //   return response.data
     // }
     actions.sub();
-    console.log(response);
-    return response;
+    const { code, message, data } = response;
+    switch (code) {
+      case 0:
+        return data;
+      case 10000:
+        break;
+    }
   },
   (response) => {
     /*  对响应错误做点什么 （statusCode !== 200）*/

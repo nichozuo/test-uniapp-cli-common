@@ -1,5 +1,5 @@
 <template>
-  <view class="content">
+  <cc-view class="content">
     <image class="logo" src="/static/logo.png"></image>
     <view>
       <text class="text-4xl">{{ title }}</text>
@@ -7,7 +7,7 @@
       <u-button type="primary" text="uview组件"></u-button>
       <uni-card title="uni-ui卡片"> </uni-card>
     </view>
-  </view>
+  </cc-view>
 </template>
 
 <script>

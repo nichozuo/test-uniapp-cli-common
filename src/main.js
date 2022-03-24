@@ -1,6 +1,7 @@
 import Vue from "vue";
 import App from "./App";
-
+// store
+import store from "./store/index.js";
 // add tailwind
 import "tailwindcss/tailwind.css";
 // add uviewui
@@ -15,6 +16,7 @@ Vue.config.productionTip = false;
 App.mpType = "app";
 
 const app = new Vue({
+  store,
   ...App,
 });
 app.$mount();
