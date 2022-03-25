@@ -4,21 +4,29 @@
     <view>
       <text class="text-4xl">{{ title }}</text>
       <button type="warn">uni-app内置组件</button>
-      <u-button type="primary" text="uview组件"></u-button>
-      <uni-card title="uni-ui卡片"> </uni-card>
+      <u-button type="primary" text="uview组件" @click="onClick"></u-button>
+      <uni-card title="uni-ui卡片">{{ test }} </uni-card>
     </view>
   </cc-view>
 </template>
 
 <script>
+const config = require("../../config/config");
 export default {
   data() {
     return {
       title: "tailwindcss",
+      test: process.env.HTTP_BASE_URL,
     };
   },
-  onLoad() {},
-  methods: {},
+  onLoad() {
+    console.log(process.env, process.env.HTTP_BASE_URL);
+  },
+  methods: {
+    onClick() {
+      uni.navigateTo({ url: "/pages/login" });
+    },
+  },
 };
 </script>
 

@@ -1,19 +1,18 @@
 # test-uniapp-cli-common
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Project feature
+- [x] vue-cli on uniapp
+- [x] uni components
+- [x] uni-ui components
+- [x] uview-ui components
+- [x] tailwindcss
+- [x] request util
+- [x] config env support
+- [x] store
+    - [x] auth
+    - [x] loading & block
+- [x] global loading control
+- [x] block onLaunch
+- [ ] wechat login
+- [ ] common utils
+- [ ] common components

@@ -1,43 +1,51 @@
-import { http } from "../../common/utils/http.js";
+import http from "../../common/utils/http";
 
 const state = {
-  user: {},
-  permissions: {},
+  wechat: {}, // 微信信息
+  user: {}, // 用户信息
 };
 
 const getters = {
+  wechat: (state) => state.wechat,
   user: (state) => state.user,
-  permissions: (state) => state.permissions,
 };
 
 const actions = {
   loginAction({ commit }, params) {
-    http.post("auth/login", params).then((res) => {
-      commit("setLogin", res.data.user);
-      commit("setMenu", res.data.permissions);
-      uni.setStorageSync("TOKEN", res.data.token.access_token);
-      uni.switchTab({
-        url: "/pages/work/index",
+    return http
+      .post("auth/code", params)
+      .then((res) => {
+        console.loc("loginAction:::then", res);
+        commit("setLogin", res.data);
+        uni.setStorageSync(process.env.WECHAT_LAST_CODE_KEY, params.code);
+        uni.setStorageSync(
+          process.env.ACCESS_TOKEN_KEY,
+          res.data.token.access_token
+        );
+        return Promise.resolve(res);
+      })
+      .catch(() => {
+        console.log("loginAction:::catch");
+        return Promise.reject();
       });
-    });
   },
   meAction({ commit }) {
-    http.post("auth/me").then((res) => {
-      commit("setLogin", res.data.user);
-      commit("setMenu", res.data.permissions);
-      uni.switchTab({
-        url: "/pages/work/index",
+    return http
+      .post("auth/me")
+      .then((res) => {
+        commit("setLogin", res.data);
+        return Promise.resolve();
+      })
+      .catch(() => {
+        return Promise.reject();
       });
-    });
   },
 };
 
 const mutations = {
-  setLogin(state, user) {
-    state.user = user;
-  },
-  setMenu(state, menu) {
-    state.permissions = menu;
+  setLogin(state, data) {
+    state.wechat = data.wechat;
+    state.user = data.user;
   },
 };
 

@@ -1,5 +1,6 @@
 const state = {
-  count: 1,
+  isResolve: false,
+  count: 0,
 };
 
 const getters = {};
@@ -11,6 +12,9 @@ const actions = {
   subLoadingAction({ commit }) {
     commit("subLoading");
   },
+  onLaunchFinishAction({ commit }) {
+    commit("onLaunchFinish");
+  },
 };
 
 const mutations = {
@@ -19,6 +23,9 @@ const mutations = {
   },
   subLoading(state) {
     state.count = state.count - 1;
+  },
+  onLaunchFinish(state) {
+    state.isResolve = true;
   },
 };
 

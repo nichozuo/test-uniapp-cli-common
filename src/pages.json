@@ -7,14 +7,15 @@
 
   "pages": [
     {
-      "path": "pages/index/index"
+      "path": "pages/index"
+    },
+    {
+      "path": "pages/login"
     }
   ],
 
   "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationStyle": "custom",
     "backgroundColor": "#F8F8F8"
   }
 }

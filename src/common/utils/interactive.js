@@ -3,7 +3,6 @@ export const showError = (title) => {
   uni.showToast({
     title: title,
     duration: 3000,
-    image: "/static/error.svg",
   });
 };
 

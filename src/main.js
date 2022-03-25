@@ -10,6 +10,10 @@ Vue.use(uView);
 // add http
 import http from "./common/utils/http";
 Vue.prototype.$http = http;
+// onLaunch阻塞
+Vue.prototype.$onLaunched = new Promise((resolve) => {
+  Vue.prototype.$isResolve = resolve;
+});
 
 Vue.config.productionTip = false;
 

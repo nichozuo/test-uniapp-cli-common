@@ -1,14 +1,16 @@
 import Request from "luch-request";
+import { showError } from "./interactive";
 
 const actions = {
   add: () => {},
   sub: () => {},
 };
+
 const http = new Request({
-  baseURL: "http://127.0.0.1:8000/api/agent/",
+  baseURL: process.env.HTTP_BASE_URL,
   method: "POST",
   // #ifdef H5 || APP-PLUS || MP-ALIPAY || MP-WEIXIN
-  timeout: 100000,
+  timeout: process.env.HTTP_TIMEOUT,
   // #endif
   // #ifdef APP-PLUS
   sslVerify: true,
@@ -39,7 +41,8 @@ http.interceptors.request.use(
     actions.add();
     config.header = {
       ...config.header,
-      Authorization: "Bearer " + uni.getStorageSync("TOKEN-NAME"),
+      Authorization:
+        "Bearer " + uni.getStorageSync(process.env.ACCESS_TOKEN_KEY),
     };
     // 演示custom 用处
     // if (config.custom.auth) {
@@ -71,17 +74,20 @@ http.interceptors.response.use(
     // if (response.config.custom.verification) { // 演示自定义参数的作用
     //   return response.data
     // }
+    console.log("http response:::", response);
     actions.sub();
-    const { code, message, data } = response;
+    const { code, message } = response.data;
     switch (code) {
       case 0:
-        return data;
+        return response.data;
       case 10000:
-        break;
+        showError(message);
+        return Promise.reject(response.data);
     }
   },
   (response) => {
     /*  对响应错误做点什么 （statusCode !== 200）*/
+    console.log("http response error:::", response);
     actions.sub();
     console.log(response);
     return Promise.reject(response);
