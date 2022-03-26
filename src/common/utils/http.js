@@ -1,9 +1,13 @@
 import Request from "luch-request";
-import { showError } from "./interactive";
+import store from "../../store";
 
 const actions = {
-  add: () => {},
-  sub: () => {},
+  add: () => {
+    store.dispatch("loading/addAction");
+  },
+  sub: () => {
+    store.dispatch("loading/subAction");
+  },
 };
 
 const http = new Request({
@@ -74,22 +78,17 @@ http.interceptors.response.use(
     // if (response.config.custom.verification) { // 演示自定义参数的作用
     //   return response.data
     // }
-    console.log("http response:::", response);
     actions.sub();
     const { code, message } = response.data;
     switch (code) {
       case 0:
         return response.data;
       case 10000:
-        showError(message);
         return Promise.reject(response.data);
     }
   },
   (response) => {
-    /*  对响应错误做点什么 （statusCode !== 200）*/
-    console.log("http response error:::", response);
     actions.sub();
-    console.log(response);
     return Promise.reject(response);
   }
 );

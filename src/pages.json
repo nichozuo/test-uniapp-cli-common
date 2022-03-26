@@ -10,7 +10,7 @@
       "path": "pages/index"
     },
     {
-      "path": "pages/login"
+      "path": "pages/loginMobile/index"
     }
   ],
 

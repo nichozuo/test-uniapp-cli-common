@@ -6,10 +6,10 @@ const state = {
 const getters = {};
 
 const actions = {
-  addLoadingAction({ commit }) {
+  addAction({ commit }) {
     commit("addLoading");
   },
-  subLoadingAction({ commit }) {
+  subAction({ commit }) {
     commit("subLoading");
   },
   onLaunchFinishAction({ commit }) {

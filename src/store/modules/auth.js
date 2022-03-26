@@ -6,7 +6,7 @@ const state = {
 };
 
 const getters = {
-  wechat: (state) => state.wechat,
+  wechat: (state) => state.wechat, // 跟api交互的access_token
   user: (state) => state.user,
 };
 
@@ -15,7 +15,6 @@ const actions = {
     return http
       .post("auth/code", params)
       .then((res) => {
-        console.loc("loginAction:::then", res);
         commit("setLogin", res.data);
         uni.setStorageSync(process.env.WECHAT_LAST_CODE_KEY, params.code);
         uni.setStorageSync(
@@ -25,7 +24,6 @@ const actions = {
         return Promise.resolve(res);
       })
       .catch(() => {
-        console.log("loginAction:::catch");
         return Promise.reject();
       });
   },

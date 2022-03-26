@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App";
+
 // store
 import store from "./store/index.js";
 // add tailwind

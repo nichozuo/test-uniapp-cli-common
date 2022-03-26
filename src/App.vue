@@ -4,22 +4,19 @@ const queryString = require("query-string");
 
 export default {
   onLaunch: function () {
+    console.log("onLaunch");
     const search = queryString.parse(location.search);
     const lastCode = uni.getStorageSync(process.env.WECHAT_LAST_CODE_KEY);
     const that = this;
-    console.log("search.code", search.code, "lastCode", lastCode);
     if (search.code && lastCode != search.code) {
       this.$store
         .dispatch("auth/loginAction", { code: search.code })
         .then(() => {
-          console.log("dispath:::then");
           that.$store.dispatch("loading/onLaunchFinishAction");
           that.$isResolve();
           location.search = "";
         })
-        .catch(() => {
-          console.log("dispath:::catch");
-        });
+        .catch(() => {});
     } else {
       const that = this;
       this.$store
@@ -34,7 +31,7 @@ export default {
             content: "跳转到微信进行登录？",
             showCancel: false,
             confirmText: "点击前往",
-            success: function (res) {
+            success: function () {
               location.href =
                 process.env.WECHAT_PROXY_LOGIN_URL +
                 "?url=" +
