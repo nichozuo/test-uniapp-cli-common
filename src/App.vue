@@ -62,4 +62,5 @@ export default {
 
 <style lang="scss">
 @import "uview-ui/index.scss";
+@import "@/static/iconfont/iconfont.css";
 </style>

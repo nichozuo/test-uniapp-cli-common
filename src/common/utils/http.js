@@ -65,6 +65,7 @@ http.interceptors.request.use(
   },
   (config) => {
     // 可使用async await 做异步操作
+    uni.showToast({ title: "error", config });
     actions.sub();
     return Promise.reject(config);
   }

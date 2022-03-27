@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="bg-gray-50 w-full min-h-screen">
     <cc-loading />
     <template v-if="isResolve && pageStatus == 0">
       <view></view>

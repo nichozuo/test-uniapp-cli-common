@@ -8,6 +8,7 @@ import "tailwindcss/tailwind.css";
 // add uviewui
 import uView from "uview-ui";
 Vue.use(uView);
+uni.$u.config.unit = "rpx";
 // add http
 import http from "./common/utils/http";
 Vue.prototype.$http = http;
