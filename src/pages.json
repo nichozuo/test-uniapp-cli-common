@@ -7,13 +7,44 @@
 
   "pages": [
     {
-      "path": "pages/home/index"
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": true
+      }
     },
     {
-      "path": "pages/loginMobile/index"
+      "path": "pages/loginMobile/index",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
     },
     {
-      "path": "pages/todayOrders/index"
+      "path": "pages/todayOrders/index",
+      "style": {
+        "navigationBarTitleText": "今日订单",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/orderDetail/index",
+      "style": {
+        "navigationBarTitleText": "订单详情"
+      }
+    },
+    {
+      "path": "pages/myAgents/index",
+      "style": {
+        "navigationBarTitleText": "我的代理",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/myMerchants/index",
+      "style": {
+        "navigationBarTitleText": "我的商户",
+        "enablePullDownRefresh": true
+      }
     }
   ],
 
