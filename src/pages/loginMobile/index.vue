@@ -1,5 +1,5 @@
 <template>
-  <cc-view :pageStatus="pageStatus">
+  <cc-view>
     <text class="text-red-500 text-6xl">Hello world</text>
     <button @click="onClick">Login Mobile Page</button>
   </cc-view>
@@ -17,8 +17,10 @@ export default {
     },
   },
   async onShow() {
-    await this.checkGuard(0);
-    console.log("loginMobile/index:::onShow");
+    // 阻塞
+    await uni.$onAppLaunched;
+    await uni.$pageAuth(0);
+    console.log("index.vue onShow");
   },
 };
 </script>

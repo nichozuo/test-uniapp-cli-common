@@ -1,6 +1,7 @@
 const state = {
-  isResolve: false,
-  count: 0,
+  appLaunched: false, // app是否加载完
+  pageAuthed: false, // 页面是否加载完
+  count: 0, // 请求的数量
 };
 
 const getters = {};
@@ -12,8 +13,14 @@ const actions = {
   subAction({ commit }) {
     commit("subLoading");
   },
-  onLaunchFinishAction({ commit }) {
-    commit("onLaunchFinish");
+  onAppLaunchedAction({ commit }) {
+    commit("onAppLaunched");
+  },
+  pageAuthOKAction({ commit }) {
+    commit("pageAuthOK");
+  },
+  pageAuthFailAction({ commit }) {
+    commit("pageAuthFail");
   },
 };
 
@@ -24,8 +31,14 @@ const mutations = {
   subLoading(state) {
     state.count = state.count - 1;
   },
-  onLaunchFinish(state) {
-    state.isResolve = true;
+  onAppLaunched(state) {
+    state.appLaunched = true;
+  },
+  pageAuthOK(state) {
+    state.pageAuthed = true;
+  },
+  pageAuthFail(state) {
+    state.pageAuthed = false;
   },
 };
 

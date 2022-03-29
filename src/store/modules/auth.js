@@ -1,5 +1,3 @@
-import http from "../../common/utils/http";
-
 const state = {
   wechat: {}, // 微信信息
   user: {}, // 用户信息
@@ -12,7 +10,7 @@ const getters = {
 
 const actions = {
   loginAction({ commit }, params) {
-    return http
+    return uni.$u.http
       .post("auth/code", params)
       .then((res) => {
         commit("setLogin", res.data);
@@ -28,7 +26,7 @@ const actions = {
       });
   },
   meAction({ commit }) {
-    return http
+    return uni.$u.http
       .post("auth/me")
       .then((res) => {
         commit("setLogin", res.data);
@@ -42,8 +40,8 @@ const actions = {
 
 const mutations = {
   setLogin(state, data) {
-    state.wechat = data.wechat;
-    state.user = data.user;
+    state.wechat = getApp().globalData.wechat = data.wechat;
+    state.user = getApp().globalData.user = data.user;
   },
 };
 

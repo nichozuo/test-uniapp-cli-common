@@ -9,8 +9,10 @@ export default {
       elClass: uni.$u.guid(20),
     };
   },
-  onLoad() {
-    console.log(uni.$u.color);
+  async onShow() {
+    // 阻塞
+    await uni.$pageAuth(0);
+    console.log("index.vue onShow");
   },
 };
 </script>

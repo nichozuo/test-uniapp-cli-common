@@ -3,18 +3,22 @@ import App from "./App";
 
 // store
 import store from "./store/index.js";
+
 // add tailwind
 import "tailwindcss/tailwind.css";
+
 // add uviewui
 import uView from "uview-ui";
 Vue.use(uView);
 uni.$u.config.unit = "rpx";
-// add http
-import http from "./common/utils/http";
-Vue.prototype.$http = http;
+
+// // setup uni.$u.http
+import "./common/utils/http";
+import "./common/utils/pageAuth";
+
 // onLaunch阻塞
-Vue.prototype.$onLaunched = new Promise((resolve) => {
-  Vue.prototype.$isResolve = resolve;
+uni.$onAppLaunched = new Promise((resolve) => {
+  uni.$appLaunched = resolve;
 });
 
 Vue.config.productionTip = false;

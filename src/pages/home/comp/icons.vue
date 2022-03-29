@@ -12,7 +12,7 @@
         :key="baseListIndex"
         class="mb-4"
       >
-        <u-icon :name="baseListItem.name" :size="22" />
+        <u-icon :name="baseListItem.name" :size="50" />
         <text>{{ baseListItem.title }}</text>
       </u-grid-item>
     </u-grid>

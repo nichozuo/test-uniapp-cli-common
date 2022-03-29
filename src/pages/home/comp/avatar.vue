@@ -15,13 +15,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
-  computed: {
-    ...mapState("auth", {
-      wechat: "wechat",
-    }),
+  data() {
+    return {
+      user: getApp().globalData.user,
+      wechat: getApp().globalData.wechat,
+    };
   },
 };
 </script>

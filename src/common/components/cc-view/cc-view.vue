@@ -1,10 +1,10 @@
 <template>
   <view class="bg-gray-50 w-full min-h-screen">
     <cc-loading />
-    <template v-if="isResolve && pageStatus == 0">
+    <template v-if="appLaunched && pageAuthed == 0">
       <view></view>
     </template>
-    <template v-else-if="isResolve && pageStatus">
+    <template v-else-if="appLaunched && pageAuthed">
       <slot />
     </template>
     <template v-else>
@@ -17,10 +17,10 @@
 import { mapState } from "vuex";
 
 export default {
-  props: ["pageStatus"],
   computed: {
     ...mapState("loading", {
-      isResolve: "isResolve",
+      appLaunched: "appLaunched",
+      pageAuthed: "pageAuthed",
     }),
   },
 };
