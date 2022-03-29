@@ -6,9 +6,7 @@
 </template>
 
 <script>
-import pageMixin from "@/mixins/pageMixin";
 export default {
-  mixins: [pageMixin],
   methods: {
     onClick() {
       this.$http.post("auth/test", { id: 1 }).then(() => {

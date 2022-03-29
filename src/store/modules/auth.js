@@ -11,7 +11,7 @@ const getters = {
 const actions = {
   loginAction({ commit }, params) {
     return uni.$u.http
-      .post("auth/code", params)
+      .post("auth/login", params)
       .then((res) => {
         commit("setLogin", res.data);
         uni.setStorageSync(process.env.WECHAT_LAST_CODE_KEY, params.code);
@@ -41,7 +41,7 @@ const actions = {
 const mutations = {
   setLogin(state, data) {
     state.wechat = getApp().globalData.wechat = data.wechat;
-    state.user = getApp().globalData.user = data.user;
+    state.user = getApp().globalData.user = data.agent;
   },
 };
 
